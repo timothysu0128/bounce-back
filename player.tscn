@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cg88yufd8ykb"]
 
 [ext_resource type="Script" uid="uid://b643mr08evibj" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://b8ueovpslps2h" path="res://icon.svg" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qeq5k"]
 size = Vector2(41, 40)
@@ -19,3 +20,7 @@ shape = SubResource("RectangleShape2D_qeq5k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1460075623]
 position = Vector2(85, 89)
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1152993925]
+position = Vector2(240, 183)
+texture = ExtResource("2_onrkg")
