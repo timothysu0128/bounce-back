@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://bv6rpc0b7rjuq"]
 
 [ext_resource type="PackedScene" uid="uid://cg88yufd8ykb" path="res://player.tscn" id="1_gxbh7"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://dxx2okdfbhgmn" path="res://enemy_spawner.gd" id="2_vo8sw"]
 [ext_resource type="PackedScene" uid="uid://on6ye7h8xalg" path="res://enemy.tscn" id="3_883nb"]
+=======
+[ext_resource type="Texture2D" uid="uid://b8ueovpslps2h" path="res://icon.svg" id="2_vo8sw"]
+[ext_resource type="Script" uid="uid://biaji86e2sjq" path="res://area_2d.gd" id="3_883nb"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltp5q"]
 size = Vector2(1074, 20)
@@ -10,6 +15,15 @@ size = Vector2(1074, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qeq5k"]
 size = Vector2(28, 1043)
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okhu5"]
+size = Vector2(126, 127)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmlgv"]
+radius = 117.630775
+
+>>>>>>> Stashed changes
 [node name="Prototype" type="Node2D" unique_id=2114289689]
 
 [node name="player" parent="." unique_id=1492091564 instance=ExtResource("1_gxbh7")]
@@ -41,5 +55,20 @@ enemy = ExtResource("3_883nb")
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=55813452]
 autostart = true
 
+<<<<<<< Updated upstream
 [connection signal="timeout" from="EnemySpawner/Timer" to="player" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
+=======
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=693299140]
+position = Vector2(-1, 10.5)
+shape = SubResource("RectangleShape2D_okhu5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=662533378]
+position = Vector2(-358, -75)
+script = ExtResource("3_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=332637963]
+shape = SubResource("CircleShape2D_qmlgv")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+>>>>>>> Stashed changes

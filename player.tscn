@@ -19,3 +19,9 @@ shape = SubResource("RectangleShape2D_qeq5k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1460075623]
 position = Vector2(85, 89)
+
+[node name="Label" type="Label" parent="." unique_id=1645190764]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 300
+text = "Score: 0"
