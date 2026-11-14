@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://bv6rpc0b7rjuq"]
 
 [ext_resource type="PackedScene" uid="uid://cg88yufd8ykb" path="res://player.tscn" id="1_gxbh7"]
-[ext_resource type="Texture2D" uid="uid://b8ueovpslps2h" path="res://icon.svg" id="2_vo8sw"]
+[ext_resource type="Script" uid="uid://dxx2okdfbhgmn" path="res://enemy_spawner.gd" id="2_vo8sw"]
+[ext_resource type="PackedScene" uid="uid://on6ye7h8xalg" path="res://enemy.tscn" id="3_883nb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ltp5q"]
 size = Vector2(1074, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qeq5k"]
 size = Vector2(28, 1043)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_okhu5"]
-size = Vector2(126, 127)
 
 [node name="Prototype" type="Node2D" unique_id=2114289689]
 
@@ -36,12 +34,12 @@ shape = SubResource("RectangleShape2D_ltp5q")
 position = Vector2(539, -8)
 shape = SubResource("RectangleShape2D_qeq5k")
 
-[node name="enemy" type="CharacterBody2D" parent="." unique_id=1648221145]
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=1994323004]
+script = ExtResource("2_vo8sw")
+enemy = ExtResource("3_883nb")
 
-[node name="Sprite2D" type="Sprite2D" parent="enemy" unique_id=25212497]
-position = Vector2(-1, 10)
-texture = ExtResource("2_vo8sw")
+[node name="Timer" type="Timer" parent="EnemySpawner" unique_id=55813452]
+autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=693299140]
-position = Vector2(-1, 10.5)
-shape = SubResource("RectangleShape2D_okhu5")
+[connection signal="timeout" from="EnemySpawner/Timer" to="player" method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
